@@ -2,10 +2,11 @@
 <html>
 <head>
 <title>MAIN FAM Window Systems</title>
+<link href='https://fonts.googleapis.com/css?family=IBM Plex Mono' rel='stylesheet'>
 </head>
 <script src="https://cdn.plot.ly/plotly-3.7.0.min.js"></script>
 <body style="background-color:#CECECE;">
-<h1>Project Skyscraper - Windows</h1>
+<h1 style="font-family:'IBM Plex Mono';">Project Skyscraper - Windows</h1>
 <div id="myPlot" style="width:100%;height:100%"></div>
 
 <script>
@@ -14,7 +15,8 @@ const yArray = [-119,126,-10,-73,-54,66,86,-81,-122,-61,-74,-80,80,73,19,-40,-30
 const zArray = [1441,-1696,-601,-1517,-1293,-1349,-1281,-87,-483,664,1481,181,-672,213,-1954,-1866,1756,1026,2034,-777,1577,1948,1115,848,-218,280,1233,1098,-857,-268,-1226,1448,-921,-409,286,-1217,-1294,745,-1601,1104,595,1276,1159,1893,-207,1912,-1679,36,-1175,-166,-119,1642,-993,515,1815,861,481,-1899,112,-626,1623,815,-1163,-584,1934,509,854,506,956,-1974,-958,1533,793,-62,-53,-844,-1865,11,1784];
 
 // Define Data
-const Windows = {
+const trace_windows = {
+  name:"Windows",
   x:xArray,
   y:yArray,
   z:zArray,
@@ -30,7 +32,8 @@ const Windows = {
   type:'scatter3d'
 };
 
-const MAINFAM = {
+const trace_mainfam = {
+  name:"MAIN FAM",
   x:[700],
   y:[-64],
   z:[1374],
@@ -46,7 +49,7 @@ const MAINFAM = {
   type:'scatter3d'
 };
 
-var data = [Windows, MAINFAM]
+var data = [trace_windows, trace_mainfam]
 
 // Define Layout
 const layout = {
