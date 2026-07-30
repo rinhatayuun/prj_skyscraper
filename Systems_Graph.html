@@ -3,11 +3,82 @@
 <head>
 <title>MAIN FAM Window Systems</title>
 <link href='https://fonts.googleapis.com/css?family=IBM Plex Mono' rel='stylesheet'>
+<style>
+	.terminal-console { 
+	  width: 100%; 
+	  max-width: 1000px; 
+	  margin: 40px 40px 40px 40px; 
+	  background: #0d1117; 
+	  border: 2px solid #21262d; 
+	  border-radius: 10px; 
+	  font-family: 'Courier New', Consolas, monospace; 
+	  color: #c9d1d9; 
+	  overflow: hidden; 
+	  box-shadow: 0 15px 40px rgba(0,0,0,0.6); 
+	  position: relative; 
+	  z-index: 10; 
+	}
+	
+	.terminal-body { 
+	  height: 260px; 
+	  padding: 15px; 
+	  overflow-y: auto; 
+	  background: #0d1117; 
+	  line-height: 1.55; 
+	  font-size: 18px;
+	}
+
+	.prompt { color: #39d353; margin-right: 10px; }
+
+	.terminal-response {
+		color:#c9d1d9;
+	}
+</style>
 </head>
 <script src="https://cdn.plot.ly/plotly-3.7.0.min.js"></script>
-<body style="background-color:rgb(53, 24, 25);">
-<h1 style="font-family:'IBM Plex Mono';color:#FEFEFE;">Project Skyscraper - Operator Windows</h1>
+<body style="background-color:rgb(53, 24, 25);color:#FEFEFE;font-family: Arial, sans serif;">
+<h1 style="font-family:'IBM Plex Mono';">Project Skyscraper - Operator Windows</h1>
 <div id="myPlot" style="width:100%;height:100%"></div>
+<h2>Overview</h2>
+<p>This page plots the voxel coordinates of systems reported by the RecallDreams.dev &quot;Echoes of the Threshold&quot; demo terminal, as they are in the Euclid galactic map. Systems are correlated with their operator as follows:<p>
+<ul>
+<li>If the operator's prime has one or more neighbours (anagram primes), then the operator's portal coordinates is taken from the neighbour's terminal response.</li>
+<li>If the operator's prime has no neighbours, then the coordinates are taken from the system visible from their window.</li>
+</ul>
+<p>It is uncertain at this time whether operators with no neighbours are located at the system in their own terminal response, or at another system which is not reported by the terminal.</p>
+<br />
+<br />
+<h2 style="margin-top: 15px">Example - One Neighbour</h2>
+<div class="terminal-console">
+	<div class="terminal-body">
+		<p><span class="prompt">&gt;</span> 1009<br /><p>
+		<p></p>
+		<p class="terminal-response">NeighbourOne, right? Nice to meet you! If you look out your window, you will see NeighbourTwo there: Goggrin-Derpa [13254C2D3D9F]</p>
+		<p></p>
+		<p><span class="prompt">&gt;</span> 9001</p>
+		<p></p>
+		<p class="terminal-response">NeighbourTwo, right? Nice to meet you! If you look out your window, you will see NeighbourOne there: Maclabet-Xev [2045CF423D51]</p>
+	</div>
+</div>
+
+<p>With this terminal output:</p>
+<ul>
+	<li>Operator NeighbourOne (prime 1009) would be associated with system Maclabet-Xev</li>
+	<li>Operator NeighbourTwo (prime 9001) would be associated with system Goggrin-Derpa.</li>
+</ul>
+<br />
+<br />
+<h2 style="margin-top: 15px">Example - No Neighbour</h2>
+<div class="terminal-console">
+	<div class="terminal-body">
+		<p><span class="prompt">&gt;</span> 5569<br /><p>
+		<p></p>
+		<p class="terminal-response">Neighbourless (prime 5569), right? Nice to meet you! If you look out your window, you will see Aardabarg XII [314D695C1001]</p>
+		<p></p>
+	</div>
+</div>
+<p>With this terminal output, operator Neighbourless would be associated with system Aardabarg XII.</p>
+
 <script>
 const nameArray = ["Pchulo-19","Dizzy","Aurix_Darastrix","Vosinigr","William","Mac","Moonflower","Maniro","Lofblad","Microsan","LightningRadiant","Prime_V","BadPunZ","Marte Fardreamer","EliasNievaP the walker","Klarac","MoonWatcher75","La Voragine","Dreamfly","M1Silencer","Ripthedead","Item Stealer","Rinh'a","CaptHarpo","Calix","Sergio","Geodatan","Solanum","AztecaMx","Muhaddil","7101334","Dwenius","Sleepycadet","Surpz","YourBasicMaths","CJR","SisyphusMex","Oskar1up","RetroTerrestrial","G'fudi","Lindwur","The Lone Traveler","Jordan","SheralMyst","Jaina Siderea","Kanaju","Kadaveda","Stubborn Ducky","Hawk-Night","Fwapp","Dave","Mad-Hatter","JustiFox","FaunDoveFelix","MountTheRainbow","Denebola","Lauris","GR3G!","Taurtura","Bernice42","Lamb","Bubba","AdaRynin","Polyphemus","SkullyTheSkully","Pr1sm","MamieLinba","Gary","Travars","Woob","TheWingCommander","Michael","Javtron91","AlexWinter","Had","Dregdane","AshkerNMS","GoodGuysFree","CartoonHead","Ninjafireball09","Toddumptious","CyberNinjaX3648","TomAcreon","Lisko","Andrew","citizenScientist","Frazzlesprite","Batzy1683","Cattivision","Johnnyintheclouds","Lachlaan","Ekimo","Blindvador","Jonbot5k","Falkon","M0lz","Vau1t","Dr. Putnam","Melanon68","vector_cmdr","Fort_wort_wort","8ubblez","JustJoey","Beans","SCHOLAE","Astaroth88","Selfie Gek","JubiTheVille","Ory","Zachary","Ekpyroto","Astrosurf66","Stu","Alterworld","CrossID","Footage","BenR","Skilnin","Gumsk","Yuri","Ozoto","Rusty Astrogator","Jenness","Legin1216","ThatBomberBoi","Kerdorin","Spock","Mafi","Singular Gleam","Jokarson","Turbulentflow","Morse","Spiderweb333","Devilin Pixy"];
 const xArray = [654,949,-904,1995,-1612,-1877,1156,1034,1481,-350,1595,-1286,-373,1709,-1703,546,1047,-1518,352,1846,-386,821,1391,-493,437,-2038,-709,1108,1774,1110,-1429,-1600,-973,643,237,57,542,822,1445,1337,-201,850,-450,-1688,-1675,1220,-1810,-205,-805,1645,1190,1529,935,-1977,-312,-1950,-1794,1706,-1321,917,-900,1511,-610,-1706,-1174,1309,-314,377,168,780,1086,434,96,-1528,-1114,-681,-567,1244,-1358,554,-751,1866,1806,-1541,1608,-1311,-509,-1128,477,694,225,1156,-1718,-1172,1335,1112,-1925,-458,-1144,1740,-568,-191,671,1494,911,-741,1560,-2022,-1681,-1164,1059,-92,61,1917,-18,-1207,630,-420,-1935,1862,-1447,585,514,-558,1171,877,264,909,317,-1422,-373,-944,-1728,1429];
@@ -51,6 +122,22 @@ var trace_mainfam = {
   type:'scatter3d'
 };
 
+trace_center = {
+	name: "Galactic Center",
+	x:[0],
+	y:[0],
+	z:[0],
+	mode:"marker",
+	marker: {
+		size: 4,
+		line: {
+		color: 'rgba(0, 0, 0, 0.14)',
+		width: 0.5},
+		opacity: 0.8
+	},
+	type:'scatter3d'
+}
+
 trace_labels = {
   name:"Operator Names",
   x:xArray,
@@ -61,7 +148,7 @@ trace_labels = {
   type:'scatter3d'
 }
 
-var data = [trace_windows, trace_labels, trace_mainfam]
+var data = [trace_windows, trace_labels, trace_mainfam, trace_center]
 
 // Define Layout
 const layout = {
