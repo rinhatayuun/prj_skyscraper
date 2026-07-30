@@ -5,23 +5,25 @@
 <link href='https://fonts.googleapis.com/css?family=IBM Plex Mono' rel='stylesheet'>
 </head>
 <script src="https://cdn.plot.ly/plotly-3.7.0.min.js"></script>
-<body style="background-color:#CECECE;">
-<h1 style="font-family:'IBM Plex Mono';">Project Skyscraper - Windows</h1>
+<body style="background-color:rgb(53, 24, 25);">
+<h1 style="font-family:'IBM Plex Mono';color:#FEFEFE;">Project Skyscraper - Operator Windows</h1>
 <div id="myPlot" style="width:100%;height:100%"></div>
-
 <script>
-const xArray = [-904,1995,-1877,1156,1034,1481,-1286,546,1047,352,1108,1774,1110,-1429,643,-1422,237,542,1337,-201,850,-450,1156,-1688,-205,1190,1529,935,-312,1706,-900,1511,-1706,1309,-1174,377,168,780,1086,434,-681,-567,1244,-751,1866,1806,1608,-509,-1128,477,694,225,-1718,-1925,-1144,-568,671,1494,911,1560,1059,-92,-1207,-1935,-1447,585,264,-558,1171,877,514,-944,-1728,1429,-2027,883,1391,-493,1645];
-const yArray = [-119,126,-10,-73,-54,66,86,-81,-122,-61,-74,-80,80,73,19,-40,-30,-91,-57,71,113,-73,72,14,117,-104,-78,-1,95,-101,-80,-2,-28,-18,-33,44,-122,-23,12,32,-44,53,-108,-10,-62,94,-5,99,29,-91,-125,-92,-8,-124,-101,-22,-38,-38,78,-102,37,-119,-45,2,24,37,-126,15,-30,-52,63,-16,56,90,-115,-31,-65,75,-68];
-const zArray = [1441,-1696,-601,-1517,-1293,-1349,-1281,-87,-483,664,1481,181,-672,213,-1954,-1866,1756,1026,2034,-777,1577,1948,1115,848,-218,280,1233,1098,-857,-268,-1226,1448,-921,-409,286,-1217,-1294,745,-1601,1104,595,1276,1159,1893,-207,1912,-1679,36,-1175,-166,-119,1642,-993,515,1815,861,481,-1899,112,-626,1623,815,-1163,-584,1934,509,854,506,956,-1974,-958,1533,793,-62,-53,-844,-1865,11,1784];
+const nameArray = ["Aurix_Darastrix","Vosinigr","Mac","Moonflower","Maniro","Lofblad","Prime_V","BadPunZ","Marte Fardreamer","Klarac","MoonWatcher75","Dreamfly","M1Silencer","Ripthedead","Item Stealer","Calix","Solanum","AztecaMx","Muhaddil","7101334","Surpz","YourBasicMaths","SisyphusMex","Oskar1up","RetroTerrestrial","G&#8217;fudi","Lindwur","The Lone Traveler","Jordan","SheralMyst","Jaina Siderea","Kanaju","Kadaveda","Stubborn Ducky","Rinh'a","Fwapp","Dave","Mad-Hatter","JustiFox","MountTheRainbow","GR3G!","Lamb","Bubba","AdaRynin","Polyphemus,","SkullyTheSkully","Pr1sm","Gary","Travars","Woob","TheWingCommander","Michael","Dregdane","AshkerNMS","GoodGuysFree","CartoonHead","Ninjafireball09","Toddumptious","CyberNinjaX3648","TomAcreon","Andrew","citizenScientist","Frazzlesprite","Batzy1683","Cattivision","Johnnyintheclouds","Lachlaan","Ekimo","Blindvador","CaptHarpo","M0lz","Vau1t","Dr. Putnam","Melanon68","Fort_wort_wort","JustJoey","Beans","SCHOLAE","Astaroth88","Selfie Gek","JubiTheVille","Ory","Zachary","Ekpyroto","Astrosurf66","Stu","Alterworld","CrossID","Footage","BenR","Skilnin","Gumsk","Yuri","Ozoto","Rusty Astrogator","Jenness","Legin1216","ThatBomberBoi","Kerdorin","Spock","Mafi","Singular Gleam","Jokarson","Turbulentflow","Morse","Spiderweb333","Devilin Pixy","The Poet","La Checktitude","Pchulo-19","Geodatan","Sleepycadet","Hawk-Night","Lisko","Jonbot5k","Falkon","Javtron91","AlexWinter","Had","La Voragine","LightningRadiant","CJR","Taurtura","FaunDoveFelix","EliasNievaP the walker","Bernice42","Lauris","Microsan","Dwenius","Sergio","Denebola","8ubblez","Dizzy","William"];
+const xArray = [-904,1995,-1877,1156,1034,1481,-1286,-373,1709,546,1047,352,1846,-386,821,437,1108,1774,1110,-1429,643,237,542,822,1445,1337,-201,850,-450,-1688,-1675,1220,-1810,-205,1391,1645,1190,1529,935,-312,1706,-900,1511,-610,-1706,-1174,1309,377,168,780,1086,434,-681,-567,1244,-1358,554,-751,1866,1806,1608,-1311,-509,-1128,477,694,225,1156,-1718,-493,1112,-1925,-458,-1144,-568,671,1494,911,-741,1560,-2022,-1681,-1164,1059,-92,61,1917,-18,-1207,630,-420,-1935,1862,-1447,585,514,-558,1171,877,264,909,317,-1422,-373,-944,-1728,1429,-2027,883,654,-709,-973,-1541,-805,-1172,1335,96,-1528,-1114,-1518,1595,57,-1321,-1977,-1703,917,-1794,-350,-1600,-2038,-1950,1740,949,-1612];
+const yArray = [-119,126,-10,-73,-54,66,86,-77,113,-81,-122,-61,0,-97,-35,-20,-74,-80,80,73,19,-30,-91,-67,47,-57,71,113,-73,14,-16,17,22,117,-65,-68,-104,-78,-1,95,-101,-80,-2,-75,-28,-33,-18,44,-122,-23,12,32,-44,53,-108,26,89,-10,-62,94,-5,-68,99,29,-91,-125,-92,72,-8,75,-21,-124,-46,-101,-22,-38,-38,78,116,-102,-68,73,106,37,-119,-13,8,124,-45,104,-14,2,-13,24,37,63,15,-30,-52,-126,-100,49,-40,-13,-16,56,90,-115,-31,-50,93,-37,-127,18,-41,-13,18,-7,96,2,-97,30,-76,-61,97,-34,1,-1,-2,-50,54,-121,88,-8];
+const zArray = [1441,-1696,-601,-1517,-1293,-1349,-1281,1873,-2048,-87,-483,664,-1801,-104,801,82,1481,181,-672,213,-1954,1756,1026,2022,-428,2034,-777,1577,1948,848,970,179,-2039,-218,-1865,1784,280,1233,1098,-857,-268,-1226,1448,1546,-921,286,-409,-1217,-1294,745,-1601,1104,595,1276,1159,672,241,1893,-207,1912,-1679,1743,36,-1175,-166,-119,1642,1115,-993,11,-1830,515,223,1815,861,481,-1899,112,-1081,-626,-787,1877,639,1623,815,751,1114,871,-1163,-1774,2008,-584,454,1934,509,-958,506,956,-1974,854,1123,1862,-1866,949,1533,793,-62,-53,-844,-34,1170,-489,-1984,1384,-626,1756,-1113,-680,-896,1498,156,1691,860,493,-388,-1738,-1406,1217,1452,1408,1753,238,396,1446];
+
+var vMode = "markers";
 
 // Define Data
-const trace_windows = {
+var trace_windows = {
   name:"Windows",
   x:xArray,
   y:yArray,
   z:zArray,
-  text:["Aurix_Darastrix","Vosinigr","Mac","Moonflower","Maniro","Lofblad","Prime_V","Klarac","MoonWatcher75","Dreamfly","Solanum","AztecaMx","Muhaddil","7101334","Surpz","Jokarson","YourBasicMaths","SisyphusMex","G'fudi","Lindwur","The Lone Traveler","Jordan","Ekimo","SheralMyst","Stubborn Ducky","Dave","Mad-Hatter","JustiFox","MountTheRainbow","GR3G!","Lamb","Bubba","Polyphemus","Pr1sm","SkullyTheSkully","Gary","Travars","Woob","TheWingCommander","Michael","Dregdane","AshkerNMS","GoodGuysFree","Toddumptious","CyberNinjaX3648","TomAcreon","Andrew","Frazzlesprite","Batzy1683","Cattivision","Johnnyintheclouds","Lachlaan","Blindvador","Vau1t","Melanon68","Fort_wort_wort","JustJoey","Beans","SCHOLAE","Selfie Gek","Ekpyroto","Astrosurf66","Footage","Gumsk","Ozoto","Rusty Astrogator","Spock","Legin1216","ThatBomberBoi","Kerdorin","Jenness","Morse","Spiderweb333","Devilin Pixy","The Poet","La Checktitude","Rinh'a","CaptHarpo","Fwapp"],
-  mode:"markers",
+  text:nameArray,
+  mode:vMode,
   marker: {
 		size: 6,
 		line: {
@@ -32,13 +34,13 @@ const trace_windows = {
   type:'scatter3d'
 };
 
-const trace_mainfam = {
+var trace_mainfam = {
   name:"MAIN FAM",
   x:[700],
   y:[-64],
   z:[1374],
   text:["MAIN FAM"],
-  mode:"markers",
+  mode:"markers+text",
   marker: {
 		size: 6,
 		line: {
@@ -49,7 +51,17 @@ const trace_mainfam = {
   type:'scatter3d'
 };
 
-var data = [trace_windows, trace_mainfam]
+trace_labels = {
+  name:"Operator Names",
+  x:xArray,
+  y:yArray,
+  z:zArray,
+  text:nameArray,
+  mode:"text",
+  type:'scatter3d'
+}
+
+var data = [trace_windows, trace_labels, trace_mainfam]
 
 // Define Layout
 const layout = {
@@ -62,7 +74,8 @@ const layout = {
 };
 
 // Display using Plotly
-Plotly.newPlot("myPlot", data, layout);
+Plotly.react("myPlot", data, layout);
+
 </script>
 
 </body>
