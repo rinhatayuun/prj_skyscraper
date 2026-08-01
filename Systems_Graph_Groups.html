@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MAIN FAM :: Neighbouring Systems</title>
+<link href='https://fonts.googleapis.com/css?family=IBM Plex Mono' rel='stylesheet'>
+<style>
+	.terminal-console { 
+	  width: 100%; 
+	  max-width: 1000px; 
+	  margin: 40px 40px 40px 40px; 
+	  background: #0d1117; 
+	  border: 2px solid #21262d; 
+	  border-radius: 10px; 
+	  font-family: 'Courier New', Consolas, monospace; 
+	  color: #c9d1d9; 
+	  overflow: hidden; 
+	  box-shadow: 0 15px 40px rgba(0,0,0,0.6); 
+	  position: relative; 
+	  z-index: 10; 
+	}
+	
+	.terminal-body { 
+	  height: 260px; 
+	  padding: 15px; 
+	  overflow-y: auto; 
+	  background: #0d1117; 
+	  line-height: 1.55; 
+	  font-size: 18px;
+	}
+
+	.prompt { color: #39d353; margin-right: 10px; }
+
+	.terminal-response {
+		color:#c9d1d9;
+	}
+</style>
+</head>
+<script src="https://cdn.plot.ly/plotly-3.7.0.min.js"></script>
+<body style="background-color:rgb(53, 24, 25);color:#FEFEFE;font-family: Arial, sans serif;">
+<h1 style="font-family:'IBM Plex Mono';">Project Skyscraper - Neighbouring Windows</h1>
+<div id="myPlot" style="width:100%;height:100%"></div>
+<h2>Overview</h2>
+<p>This page plots the voxel coordinates of only neighbouring systems reported by the RecallDreams.dev &quot;Echoes of the Threshold&quot; demo terminal, as they are in the Euclid galactic map.</p>
+<p>Systems are associated with operators as follows:<p>
+<ul>
+<li>If the operator's prime has one or more neighbours (anagram primes), then the operator's portal coordinates are taken from the neighbour's terminal response (i.e. the system visible from their neighbour's window, with the operator's name attributed).</li>
+<li>If the operator's prime has no neighbours, then the coordinates are taken from their terminal response (i.e. the system visible from their own window).</li>
+</ul>
+<p>It is uncertain at this time whether operators with no neighbours are located at the system in their own terminal response, or at another system which is not reported by the terminal.</p>
+<br />
+<br />
+<h2 style="margin-top: 15px">Example - One Neighbour</h2>
+<div class="terminal-console">
+	<div class="terminal-body">
+		<p><span class="prompt">&gt;</span> 1009<br /><p>
+		<p></p>
+		<p class="terminal-response">NeighbourOne, right? Nice to meet you! If you look out your window, you will see NeighbourTwo there: Goggrin-Derpa [13254C2D3D9F]</p>
+		<p></p>
+		<p><span class="prompt">&gt;</span> 9001</p>
+		<p></p>
+		<p class="terminal-response">NeighbourTwo, right? Nice to meet you! If you look out your window, you will see NeighbourOne there: Maclabet-Xev [2045CF423D51]</p>
+	</div>
+</div>
+
+<p>With this terminal output:</p>
+<ul>
+	<li>Operator NeighbourOne (prime 1009) would be associated with system Maclabet-Xev</li>
+	<li>Operator NeighbourTwo (prime 9001) would be associated with system Goggrin-Derpa.</li>
+</ul>
+<br />
+<br />
+<h2 style="margin-top: 15px">Example - No Neighbour</h2>
+<div class="terminal-console">
+	<div class="terminal-body">
+		<p><span class="prompt">&gt;</span> 5569<br /><p>
+		<p></p>
+		<p class="terminal-response">Neighbourless, right? Nice to meet you! If you look out your window, you will see Aardabarg XII [314D695C1001]</p>
+		<p></p>
+	</div>
+</div>
+<p>With this terminal output, operator Neighbourless (prime 5569) would be associated with system Aardabarg XII. For this page, neighbourless operators are not displayed.</p>
+
+<script>
+
+var vMode = "markers";
+
+// Define Data
+
+
+var trace_group1 = {
+  name:"Trace1",
+  x:[-805,-1541],
+  y:[18,-127],
+  z:[1384,-1984],
+  text:["Hawk-Night","Lisko"],
+  mode:vMode,
+  marker: {
+		size: 6,
+		line: {
+		color: 'rgba217, 217, 217, 0.14',
+		width: 0.5},
+		opacity: 0.8
+	},
+  type:'scatter3d'
+};
+var trace_group2 = {
+  name:"Trace2",
+  x:[1391,1645,-493],
+  y:[-65,-68,75],
+  z:[-1865,1784,11],
+  text:["Rinh'a","Fwapp","CaptHarpo"],
+  mode:vMode,
+  marker: {
+		size: 6,
+		line: {
+		color: 'rgba217, 217, 217, 0.14',
+		width: 0.5},
+		opacity: 0.8
+	},
+  type:'scatter3d'
+};
+var trace_group3 = {
+  name:"Trace3",
+  x:[-1174,1309],
+  y:[-33,-18],
+  z:[286,-409],
+  text:["SkullyTheSkully","Pr1sm"],
+  mode:vMode,
+  marker: {
+		size: 6,
+		line: {
+		color: 'rgba217, 217, 217, 0.14',
+		width: 0.5},
+		opacity: 0.8
+	},
+  type:'scatter3d'
+};
+var trace_group4 = {
+  name:"Trace4",
+  x:[96,-1528,-1114],
+  y:[18,-7,96],
+  z:[-1113,-680,-896],
+  text:["Javtron91","AlexWinter","Had"],
+  mode:vMode,
+  marker: {
+		size: 6,
+		line: {
+		color: 'rgba217, 217, 217, 0.14',
+		width: 0.5},
+		opacity: 0.8
+	},
+  type:'scatter3d'
+};
+var trace_group5 = {
+  name:"Trace5",
+  x:[1156,-1688],
+  y:[72,14],
+  z:[1115,848],
+  text:["Ekimo","SheralMyst"],
+  mode:vMode,
+  marker: {
+		size: 6,
+		line: {
+		color: 'rgba217, 217, 217, 0.14',
+		width: 0.5},
+		opacity: 0.8
+	},
+  type:'scatter3d'
+};
+var trace_group6 = {
+  name:"Trace6",
+  x:[1740,-191],
+  y:[-121,76],
+  z:[238,1053],
+  text:["vector_cmdr","8ubblez"],
+  mode:vMode,
+  marker: {
+		size: 6,
+		line: {
+		color: 'rgba217, 217, 217, 0.14',
+		width: 0.5},
+		opacity: 0.8
+	},
+  type:'scatter3d'
+};
+var trace_group7 = {
+  name:"Trace7",
+  x:[-2022,-1681,-1164],
+  y:[-68,73,106],
+  z:[-787,1877,639],
+  text:["JubiTheVille","Ory","Zachary"],
+  mode:vMode,
+  marker: {
+		size: 6,
+		line: {
+		color: 'rgba217, 217, 217, 0.14',
+		width: 0.5},
+		opacity: 0.8
+	},
+  type:'scatter3d'
+};
+var trace_group8 = {
+  name:"Trace8",
+  x:[1917,-18],
+  y:[8,124],
+  z:[1114,871],
+  text:["Alterworld","CrossID"],
+  mode:vMode,
+  marker: {
+		size: 6,
+		line: {
+		color: 'rgba217, 217, 217, 0.14',
+		width: 0.5},
+		opacity: 0.8
+	},
+  type:'scatter3d'
+};
+var trace_group9 = {
+  name:"Trace9",
+  x:[514,264],
+  y:[63,-126],
+  z:[-958,854],
+  text:["Jenness","Spock"],
+  mode:vMode,
+  marker: {
+		size: 6,
+		line: {
+		color: 'rgba217, 217, 217, 0.14',
+		width: 0.5},
+		opacity: 0.8
+	},
+  type:'scatter3d'
+};
+var trace_group10 = {
+  name:"Trace10",
+  x:[909,-373],
+  y:[-100,-13],
+  z:[1123,949],
+  text:["Mafi","Turbulentflow"],
+  mode:vMode,
+  marker: {
+		size: 6,
+		line: {
+		color: 'rgba217, 217, 217, 0.14',
+		width: 0.5},
+		opacity: 0.8
+	},
+  type:'scatter3d'
+};
+var trace_group11 = {
+  name:"Trace11",
+  x:[-1422,237],
+  y:[-40,-30],
+  z:[-1866,1756],
+  text:["Jokarson","YourBasicMaths"],
+  mode:vMode,
+  marker: {
+		size: 6,
+		line: {
+		color: 'rgba217, 217, 217, 0.14',
+		width: 0.5},
+		opacity: 0.8
+	},
+  type:'scatter3d'
+};
+var trace_group12 = {
+  name:"Trace12",
+  x:[949,-1612],
+  y:[88,-8],
+  z:[396,1446],
+  text:["Dizzy","William"],
+  mode:vMode,
+  marker: {
+		size: 6,
+		line: {
+		color: 'rgba217, 217, 217, 0.14',
+		width: 0.5},
+		opacity: 0.8
+	},
+  type:'scatter3d'
+};
+
+trace_center = {
+	name: "Galactic Center",
+	x:[0],
+	y:[0],
+	z:[0],
+	mode:"marker",
+	marker: {
+		size: 4,
+		line: {
+		color: 'rgba(0, 0, 0, 0.14)',
+		width: 0.5},
+		opacity: 0.8
+	},
+	type:'scatter3d'
+}
+
+var data = [trace_group1, trace_group2,trace_group3,trace_group4,trace_group5,trace_group6,trace_group7,trace_group8,trace_group9,trace_group10,trace_group11,trace_group12, trace_center]
+
+// Define Layout
+const layout = {
+  xaxis: {range: [-2048,2047], title: "X Axis"},
+  yaxis: {range: [-128, 127], title: "Y Axis"},
+  zaxis: {range: [-2048,2047], title: "Z Axis"},
+  title: "MAIN FAM Window Systems",
+  width: 1200,
+  height: 800
+};
+
+// Display using Plotly
+Plotly.react("myPlot", data, layout);
+
+</script>
+
+</body>
+</html>
